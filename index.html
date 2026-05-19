@@ -1,0 +1,1345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EdelYarn, Swiss-guided, Vietnam-crafted tailoring</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#7A1F2B;
+    --navy:#1B2A4A;
+    --ink:#1A1A1A;
+    --page:#FFFFFF;
+    --page-2:#F1F1F1;
+    --card:#F6F1E8;
+    --muted:#6B6B6B;
+    --hair:#DDDDDD;
+    --chip:#F5F5F5;
+    --ok:#2F6F4F;
+    --serif:"Cormorant Garamond", "Times New Roman", serif;
+    --sans:"Inter", -apple-system, "Segoe UI", system-ui, sans-serif;
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--page);
+    -webkit-font-smoothing:antialiased;
+    font-size:15px;
+    line-height:1.55;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:500;letter-spacing:.2px;margin:0;color:var(--ink)}
+  h1{font-size:60px;line-height:1.05}
+  h2{font-size:42px;line-height:1.1}
+  h3{font-size:26px;line-height:1.2}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+  /* ============ Header ============ */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:saturate(140%) blur(6px);
+    border-bottom:1px solid var(--hair);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 48px;max-width:1400px;margin:0 auto;gap:64px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .brand img{height:60px;width:auto}
+  .nav{display:flex;gap:44px;font-size:14px;color:#222;margin:0 auto}
+  .nav a{position:relative;padding:6px 0;cursor:pointer}
+  .nav a:hover{color:var(--red)}
+  .nav .has-caret::after{content:"";display:inline-block;margin-left:6px;border:4px solid transparent;border-top-color:#3a3a3a;transform:translateY(2px)}
+  .header-icons{display:flex;align-items:center;gap:18px}
+  .icon-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%}
+  .icon-btn:hover{background:var(--page-2)}
+  .icon-btn svg{width:18px;height:18px;stroke:#222;fill:none;stroke-width:1.6}
+  .cart-badge{
+    position:absolute;top:-4px;right:-4px;background:var(--red);color:#fff;
+    border-radius:999px;font-size:10px;line-height:1;padding:3px 5px;font-weight:600;
+    font-family:var(--sans);
+  }
+
+  /* ============ Buttons ============ */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:14px 22px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:500;border-radius:2px;transition:transform .15s ease,background .2s ease,color .2s ease;
+    min-width:160px;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:var(--navy);color:#fff}
+  .btn-primary:hover{background:#26365C}
+  .btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+  .btn-outline:hover{background:var(--ink);color:#fff}
+  .btn-ghost{background:#F6F1E8;color:var(--ink);border:1px solid var(--hair)}
+  .btn-ghost:hover{background:var(--page-2)}
+  .btn .chev{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+  .btn-block{width:100%}
+  .btn[disabled]{opacity:.5;cursor:not-allowed;pointer-events:none}
+
+  /* ============ Breadcrumb ============ */
+  .breadcrumb{font-size:12px;color:var(--muted);padding:18px 0 8px;letter-spacing:.04em}
+  .breadcrumb a:hover{color:var(--ink);cursor:pointer}
+  .breadcrumb .sep{margin:0 8px;color:#bdb6a8}
+
+  /* ============ Hero (home),full-bleed, mannequin right, text overlay left ============ */
+  .hero{
+    position:relative;border-bottom:1px solid var(--hair);
+    min-height:460px;background:var(--page-2);overflow:hidden;
+    display:flex;align-items:center;
+  }
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{
+    width:100%;height:100%;object-fit:cover;
+    object-position:center center;
+  }
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,
+      rgba(255,255,255,.98) 0%,
+      rgba(255,255,255,.94) 24%,
+      rgba(255,255,255,.55) 40%,
+      rgba(255,255,255,.05) 58%,
+      rgba(255,255,255,0) 70%);
+  }
+  .hero-content{position:relative;z-index:1;width:100%;padding:56px 0}
+  .hero h1{margin-bottom:18px;max-width:480px;font-size:50px;line-height:1.05}
+  .hero p.lead{color:#2c2c2c;max-width:360px;margin:0 0 28px;font-size:14.5px;line-height:1.55}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+
+  /* Hero load animation — staggered fade-up + image ken-burns */
+  @keyframes heroFadeUp{
+    from{opacity:0;transform:translateY(28px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  @keyframes heroImgIn{
+    from{opacity:0;transform:scale(1.08)}
+    to{opacity:1;transform:scale(1)}
+  }
+  @keyframes heroGradeIn{
+    from{opacity:0}
+    to{opacity:1}
+  }
+  .view.is-active .hero-bg img{animation:heroImgIn 1.6s cubic-bezier(.2,.7,.2,1) both}
+  .view.is-active .hero-bg::after{animation:heroGradeIn 1.2s ease-out .1s both}
+  .view.is-active .hero h1{animation:heroFadeUp .9s cubic-bezier(.2,.7,.2,1) .35s both}
+  .view.is-active .hero p.lead{animation:heroFadeUp .9s cubic-bezier(.2,.7,.2,1) .55s both}
+  .view.is-active .hero-cta{animation:heroFadeUp .9s cubic-bezier(.2,.7,.2,1) .75s both}
+  @media (prefers-reduced-motion: reduce){
+    .view.is-active .hero-bg img,
+    .view.is-active .hero-bg::after,
+    .view.is-active .hero h1,
+    .view.is-active .hero p.lead,
+    .view.is-active .hero-cta{animation:none}
+  }
+
+  /* ============ Product cards on home ============ */
+  .home-products{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    background:#FFFFFF;border-top:1px solid var(--hair);
+  }
+  .pcard{
+    display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:0;
+    cursor:pointer;transition:background .25s ease;
+  }
+  .pcard:hover{background:#F6F1E8}
+  .pcard + .pcard{border-left:1px solid var(--hair)}
+  .pcard-img{aspect-ratio:1/1;overflow:hidden}
+  .pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .pcard:hover .pcard-img img{transform:scale(1.03)}
+  /* Tighter crop on woman card so it matches the man's close-up energy */
+  .home-products .pcard:nth-child(2) .pcard-img img{
+    object-position:50% 28%;
+    transform:scale(1.55);
+    transform-origin:center 32%;
+  }
+  .home-products .pcard:nth-child(2):hover .pcard-img img{transform:scale(1.6)}
+  .pcard-body{padding:32px 36px}
+  .pcard-body h3{margin-bottom:12px}
+  .pcard-body p{color:var(--muted);font-size:14px;margin:0 0 24px;max-width:280px}
+  .pcard-price{font-size:14px;color:#222;font-weight:500}
+
+  /* ============ Feature strip ============ */
+  .features{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    background:var(--page-2);border-top:1px solid var(--hair);
+  }
+  .feat{
+    display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;
+    padding:26px 18px;font-size:12.5px;color:#3a3a3a;letter-spacing:.02em;
+  }
+  .feat + .feat{border-left:1px solid var(--hair)}
+  .feat svg{width:30px;height:30px;stroke:var(--red);fill:none;stroke-width:1.4}
+
+  /* ============ About ============ */
+  .about-intro{padding:72px 0 32px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .about-intro .eyebrow{display:inline-block;margin-bottom:14px}
+  .about-intro h2{margin-bottom:18px;max-width:500px}
+  .about-intro p{color:#3a3a3a;font-size:15.5px;line-height:1.7;margin:0;max-width:480px}
+  .about-intro-img{aspect-ratio:4/5;overflow:hidden;border-radius:2px;box-shadow:0 30px 60px -30px rgba(0,0,0,.22)}
+  .about-intro-img img{width:100%;height:100%;object-fit:cover}
+  .about-block{
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+    padding:56px 0;
+  }
+  .about-block.reverse .about-block-img{order:2}
+  .about-block-img{aspect-ratio:4/3;overflow:hidden;border-radius:2px}
+  .about-block-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .about-block-img:hover img{transform:scale(1.03)}
+  .about-block-text .eyebrow{display:inline-block;margin-bottom:10px}
+  .about-block-text h3{font-size:32px;margin-bottom:14px}
+  .about-block-text p{color:#3a3a3a;font-size:14.5px;line-height:1.75;margin:0 0 12px;max-width:460px}
+  .about-values{
+    background:var(--page-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
+    padding:48px 0;text-align:center;
+  }
+  .about-values h3{font-size:28px;margin-bottom:8px}
+  .about-values p{color:var(--muted);margin:0 0 28px;font-size:14.5px}
+  .about-values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:920px;margin:0 auto;text-align:left}
+  .about-value{
+    background:#F6F1E8;border:1px solid var(--hair);border-radius:2px;padding:24px;
+  }
+  .about-value .ico{
+    width:42px;height:42px;border-radius:50%;background:var(--page-2);
+    display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+  }
+  .about-value .ico svg{width:22px;height:22px;stroke:var(--red);fill:none;stroke-width:1.5}
+  .about-value h4{font-family:var(--serif);font-size:20px;margin:0 0 6px}
+  .about-value p{font-size:13.5px;color:var(--muted);line-height:1.65;margin:0}
+
+  /* ============ How it works ============ */
+  .how-hero{padding:72px 0 24px}
+  .how-hero .eyebrow{display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:14px}
+  .how-hero h2{margin-bottom:16px;max-width:680px}
+  .how-hero p{color:var(--muted);max-width:620px;font-size:15.5px;margin:0}
+  .how-steps{padding:32px 0 64px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .how-step{
+    background:#F6F1E8;border:1px solid var(--hair);border-radius:2px;
+    padding:32px;display:flex;gap:22px;align-items:flex-start;
+    cursor:pointer;
+  }
+  .how-step .num{
+    flex-shrink:0;width:48px;height:48px;border-radius:50%;
+    background:var(--page-2);color:var(--red);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:22px;font-weight:600;
+  }
+  .how-step h4{font-family:var(--serif);font-size:22px;margin:0 0 8px}
+  .how-step p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+  .how-cta{
+    background:var(--page-2);text-align:center;padding:52px 24px;
+    border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
+  }
+  .how-cta h3{font-size:32px;margin-bottom:10px}
+  .how-cta p{color:var(--muted);margin:0 0 24px}
+  .how-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  /* ============ Product detail ============ */
+  .pdp{padding:8px 0 56px}
+  .pdp-grid{display:grid;grid-template-columns:88px 1fr 1fr;gap:24px;margin-top:8px}
+  .thumbs{display:flex;flex-direction:column;gap:12px}
+  .thumbs button{
+    border:1px solid var(--hair);background:#F6F1E8;padding:0;overflow:hidden;border-radius:2px;
+    aspect-ratio:3/4;cursor:pointer;transition:border-color .2s ease;
+  }
+  .thumbs button.is-active{border-color:var(--navy)}
+  .thumbs button:hover{border-color:#888}
+  .thumbs img{width:100%;height:100%;object-fit:cover}
+  .pdp-main{
+    background:var(--page-2);border:1px solid var(--hair);border-radius:2px;
+    aspect-ratio:3/4;overflow:hidden;
+  }
+  .pdp-main img{width:100%;height:100%;object-fit:cover}
+  .pdp-side{padding:8px 0 0}
+  .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:10px;display:block}
+  .pdp-title{font-size:42px;margin-bottom:8px}
+  .pdp-rule{width:42px;height:2px;background:var(--red);margin:14px 0 18px}
+  .pdp-price{font-size:18px;font-weight:500;color:#222;margin-bottom:6px}
+  .pdp-note{color:var(--muted);font-size:13px;margin:0 0 24px}
+  .pdp-copy{color:#3a3a3a;font-size:14.5px;line-height:1.7;margin:0 0 28px;max-width:460px}
+  .fabrics-label{font-size:14px;color:#222;margin:0 0 14px;font-weight:500}
+  .fabrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:460px;margin-bottom:18px}
+  .fab{
+    border:1.5px solid transparent;border-radius:2px;background:#F6F1E8;padding:6px;cursor:pointer;
+    transition:border-color .2s ease;text-align:center;
+  }
+  .fab.is-active{border-color:var(--navy)}
+  .fab:hover{border-color:#bbb}
+  .fab .swatch{aspect-ratio:1/1;overflow:hidden;border-radius:2px}
+  .fab .swatch img{width:100%;height:100%;object-fit:cover}
+  .fab .label{font-size:12.5px;padding:8px 0 4px;color:#222}
+  .fabric-note{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--muted);margin:0 0 22px}
+  .fabric-note svg{width:14px;height:14px;stroke:var(--muted);fill:none;stroke-width:1.5;flex-shrink:0}
+  .pdp-actions{display:flex;flex-direction:column;gap:10px;max-width:460px}
+
+  /* ============ Basket ============ */
+  .basket{padding:36px 0 64px}
+  .basket h2{margin-bottom:6px}
+  .basket .lead{color:var(--muted);margin:0 0 28px;font-size:14px}
+  .basket-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:32px;align-items:start}
+  .bk-item{
+    background:#F6F1E8;border:1px solid var(--hair);border-radius:2px;
+    display:grid;grid-template-columns:140px 1fr auto;gap:20px;
+    padding:18px;align-items:center;
+  }
+  .bk-item .bk-img{aspect-ratio:3/4;overflow:hidden;border-radius:2px;background:var(--page-2)}
+  .bk-item .bk-img img{width:100%;height:100%;object-fit:cover}
+  .bk-item h4{font-family:var(--serif);font-size:22px;margin:0 0 4px}
+  .bk-item .bk-desc{color:var(--muted);font-size:13px;margin:0 0 10px;max-width:280px}
+  .bk-item .bk-price-label{font-size:12px;color:var(--muted);margin:0}
+  .bk-item .bk-price{font-size:14px;color:#222;font-weight:500;margin:2px 0 0}
+  .bk-controls{display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+  .qty{display:inline-flex;align-items:center;border:1px solid var(--hair);border-radius:2px;background:#F6F1E8}
+  .qty button{width:32px;height:32px;font-size:14px;color:#222}
+  .qty button:hover{background:var(--page-2)}
+  .qty span{min-width:28px;text-align:center;font-size:13px}
+  .trash{padding:6px;border-radius:2px}
+  .trash:hover{background:var(--page-2)}
+  .trash svg{width:16px;height:16px;stroke:#777;fill:none;stroke-width:1.6}
+  .bk-info{
+    display:flex;gap:10px;align-items:flex-start;padding:12px 14px;
+    background:#FAFAFA;border:1px solid var(--hair);border-radius:2px;
+    font-size:12.5px;color:#5a4a2c;margin-top:14px;
+  }
+  .bk-info svg{width:14px;height:14px;stroke:#a78a3f;fill:none;stroke-width:1.6;flex-shrink:0;margin-top:2px}
+  .bk-callout{
+    background:var(--page-2);border:1px dashed #c8bea7;border-radius:2px;
+    padding:18px;margin-top:18px;display:flex;gap:14px;align-items:center;font-size:13.5px;color:#3a3a3a;
+  }
+  .bk-callout svg{width:24px;height:24px;stroke:var(--red);fill:none;stroke-width:1.4;flex-shrink:0}
+  .summary{background:#F6F1E8;border:1px solid var(--hair);border-radius:2px;padding:22px}
+  .bk-empty{
+    text-align:center;padding:64px 24px;
+    background:#F6F1E8;border:1px solid var(--hair);border-radius:2px;
+  }
+  .bk-empty .icon{
+    width:64px;height:64px;border-radius:50%;background:#FFFFFF;
+    display:inline-flex;align-items:center;justify-content:center;margin-bottom:18px;
+  }
+  .bk-empty .icon svg{width:30px;height:30px;stroke:var(--muted);fill:none;stroke-width:1.4}
+  .bk-empty h3{font-family:var(--serif);font-size:28px;margin:0 0 8px}
+  .bk-empty p{color:var(--muted);margin:0 0 26px;font-size:14.5px}
+  .bk-empty .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .summary h4{font-family:var(--serif);font-size:20px;margin:0 0 14px}
+  .summary .row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--hair);font-size:13.5px}
+  .summary .row:last-of-type{border-bottom:none}
+  .summary .total{font-size:15px;font-weight:600;padding-top:14px;margin-top:6px;border-top:1px solid var(--hair)}
+  .summary .req{color:var(--red);font-weight:500}
+  .summary .req-banner{
+    display:flex;gap:10px;background:#FBF1EE;border:1px solid #EBD3CE;color:#7A1F2B;
+    padding:10px 12px;border-radius:2px;font-size:12.5px;margin:14px 0 18px;
+  }
+  .summary .req-banner svg{width:14px;height:14px;stroke:var(--red);fill:none;stroke-width:1.6;flex-shrink:0;margin-top:3px}
+  .summary .actions{display:flex;flex-direction:column;gap:10px}
+
+  /* ============ Appointment ============ */
+  .appt{padding:36px 0 64px}
+  .appt h2{margin-bottom:6px}
+  .appt .lead{color:var(--muted);margin:0 0 28px;font-size:14px;max-width:420px}
+  .appt-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start}
+  .steps{display:flex;flex-direction:column;gap:18px;padding-top:8px}
+  .step{display:flex;align-items:center;gap:14px;font-size:14px}
+  .step .num{
+    width:28px;height:28px;border-radius:50%;border:1px solid var(--hair);
+    display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);background:#F6F1E8;
+  }
+  .step.is-active .num{background:var(--red);border-color:var(--red);color:#fff}
+  .step.is-done .num{background:var(--red);border-color:var(--red);color:#fff}
+  .step.is-active .label,.step.is-done .label{color:var(--ink);font-weight:500}
+  .step .label{color:var(--muted)}
+  .step .bar{flex:1;height:1px;background:var(--hair);margin-left:6px}
+  .step.is-done .bar{background:var(--red)}
+  .appt-col h4{font-family:var(--sans);font-weight:500;font-size:14px;margin:0 0 12px;color:#222}
+  .shop-card{
+    display:flex;gap:14px;align-items:center;padding:16px;border:1.5px solid var(--red);
+    background:#F6F1E8;border-radius:2px;margin-bottom:24px;position:relative;
+  }
+  .shop-card .ico{
+    width:56px;height:56px;background:var(--page-2);border-radius:2px;display:flex;
+    align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .shop-card .ico svg{width:28px;height:28px;stroke:var(--red);fill:none;stroke-width:1.4}
+  .shop-card .meta h5{font-family:var(--serif);font-size:18px;margin:0 0 2px}
+  .shop-card .meta p{margin:0;color:var(--muted);font-size:12.5px}
+  .shop-card .check{
+    margin-left:auto;width:22px;height:22px;border-radius:50%;background:var(--red);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .shop-card .check svg{width:12px;height:12px;stroke:#fff;fill:none;stroke-width:2.5}
+  .slots{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+  .slot{
+    display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--hair);
+    background:#F6F1E8;border-radius:2px;cursor:pointer;transition:border-color .2s ease;
+  }
+  .slot:hover{border-color:#888}
+  .slot.is-active{border-color:var(--navy);background:#F6F1E8}
+  .slot .cal{width:34px;height:34px;background:var(--page-2);border-radius:2px;display:flex;align-items:center;justify-content:center}
+  .slot .cal svg{width:18px;height:18px;stroke:var(--red);fill:none;stroke-width:1.5}
+  .slot .when{font-size:14px;color:#222}
+  .slot .radio{
+    margin-left:auto;width:18px;height:18px;border-radius:50%;border:1px solid #bbb;display:flex;
+    align-items:center;justify-content:center;
+  }
+  .slot.is-active .radio{border-color:var(--navy)}
+  .slot.is-active .radio::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--navy)}
+  .appt-note{font-size:12.5px;color:var(--muted);display:flex;gap:6px;align-items:center;margin-top:12px}
+  .appt-note svg{width:14px;height:14px;stroke:var(--muted);fill:none;stroke-width:1.5}
+
+  /* ----- Step containers ----- */
+  .appt-step{display:none}
+  .appt-step.is-current{display:block;animation:fade .25s ease}
+
+  /* ----- Step 2: details form ----- */
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin-bottom:18px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field.full{grid-column:1/-1}
+  .field label{font-size:12.5px;color:#333;font-weight:500}
+  .field input,.field textarea,.field select{
+    font-family:inherit;font-size:14px;color:#222;
+    border:1px solid var(--hair);background:#F6F1E8;border-radius:2px;
+    padding:11px 12px;outline:none;transition:border-color .2s ease;
+  }
+  .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--navy)}
+  .field textarea{resize:vertical;min-height:90px}
+  .field .err{color:#a31818;font-size:11.5px;display:none}
+  .field.is-invalid input,.field.is-invalid textarea,.field.is-invalid select{border-color:#a31818}
+  .field.is-invalid .err{display:block}
+  .consent{
+    display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:#3a3a3a;
+    margin:6px 0 22px;
+  }
+  .consent input{margin-top:3px}
+  .appt-actions{display:flex;gap:10px;flex-wrap:wrap}
+  .appt-actions .btn{flex:1;min-width:0}
+
+  /* ----- Step 3: confirmation ----- */
+  .conf{padding:48px 0 24px}
+  .conf-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;margin-bottom:36px}
+  .conf-text{text-align:left}
+  .conf-check{
+    width:64px;height:64px;border-radius:50%;border:1.5px solid var(--red);
+    display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+  }
+  .conf-check svg{width:30px;height:30px;stroke:var(--red);fill:none;stroke-width:1.8}
+  .conf h2{font-size:46px;margin-bottom:16px}
+  .conf-text p{color:#3a3a3a;font-size:15px;margin:0;max-width:440px;line-height:1.7}
+  .conf-img{
+    aspect-ratio:4/3;border-radius:2px;overflow:hidden;
+    box-shadow:0 30px 60px -30px rgba(0,0,0,.25);
+  }
+  .conf-img img{width:100%;height:100%;object-fit:cover}
+  .conf-cards{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    background:#F6F1E8;border:1px solid var(--hair);border-radius:2px;margin-bottom:24px;
+  }
+  .conf-card{padding:24px 22px;text-align:center}
+  .conf-card + .conf-card{border-left:1px solid var(--hair)}
+  .conf-card .ico{
+    width:42px;height:42px;border-radius:50%;background:var(--page-2);
+    display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px;
+  }
+  .conf-card .ico svg{width:20px;height:20px;stroke:var(--red);fill:none;stroke-width:1.5}
+  .conf-card .lbl{font-size:12px;color:var(--muted);letter-spacing:.04em;margin-bottom:6px}
+  .conf-card .val{font-family:var(--serif);font-size:18px;color:var(--ink);margin-bottom:4px}
+  .conf-card .sub{font-size:12.5px;color:var(--muted);line-height:1.5}
+  .conf-banner{
+    display:flex;gap:14px;background:#FAFAFA;border:1px solid var(--hair);
+    padding:18px 22px;border-radius:2px;font-size:13.5px;color:#3a3a3a;line-height:1.7;margin-bottom:32px;
+  }
+  .conf-banner svg{width:22px;height:22px;stroke:var(--red);fill:none;stroke-width:1.5;flex-shrink:0;margin-top:2px}
+  .conf-banner b{color:var(--ink);font-weight:600}
+  .conf-actions{text-align:center}
+
+  /* ============ Footer ============ */
+  .site-footer{
+    background:#1A1A1A;color:#cfc7b8;padding:36px 0 28px;font-size:13px;
+  }
+  .site-footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+  .site-footer a{color:#cfc7b8}
+  .site-footer a:hover{color:#fff}
+  .site-footer .tag{font-family:var(--serif);font-size:22px;color:#fff}
+
+  /* ============ View routing ============ */
+  .view{display:none}
+  .view.is-active{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  /* ============ Premium reveal-on-scroll + hover system ============ */
+  @keyframes reveal-up{
+    from{opacity:0;transform:translateY(28px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  .reveal{opacity:0}
+  .reveal.is-visible{animation:reveal-up .95s cubic-bezier(.2,.7,.2,1) both}
+
+  .reveal-group > *{opacity:0}
+  .reveal-group.is-visible > *{animation:reveal-up .9s cubic-bezier(.2,.7,.2,1) both}
+  .reveal-group.is-visible > *:nth-child(1){animation-delay:.05s}
+  .reveal-group.is-visible > *:nth-child(2){animation-delay:.18s}
+  .reveal-group.is-visible > *:nth-child(3){animation-delay:.31s}
+  .reveal-group.is-visible > *:nth-child(4){animation-delay:.44s}
+  .reveal-group.is-visible > *:nth-child(5){animation-delay:.57s}
+  .reveal-group.is-visible > *:nth-child(6){animation-delay:.7s}
+  .reveal-group.is-visible > *:nth-child(7){animation-delay:.82s}
+  .reveal-group.is-visible > *:nth-child(8){animation-delay:.94s}
+
+  /* Premium hover lifts — applied to card-like content */
+  .about-value,.how-step{
+    transition:transform .4s cubic-bezier(.2,.7,.2,1),
+               box-shadow .4s ease,
+               border-color .25s ease;
+  }
+  .about-value:hover,.how-step:hover{
+    transform:translateY(-4px);
+    box-shadow:0 22px 44px -22px rgba(0,0,0,.18);
+  }
+  .conf-card{transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+  .conf-card:hover{transform:translateY(-3px)}
+  .slot{transition:border-color .25s ease, transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease}
+  .slot:hover{transform:translateY(-2px);box-shadow:0 14px 30px -20px rgba(0,0,0,.15)}
+  .feat{transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+  .feat:hover{transform:translateY(-3px)}
+  .feat svg{transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+  .feat:hover svg{transform:scale(1.08)}
+  .fab{transition:border-color .25s ease, transform .3s cubic-bezier(.2,.7,.2,1)}
+  .fab:hover{transform:translateY(-2px)}
+  .thumbs button{transition:border-color .25s ease, transform .3s cubic-bezier(.2,.7,.2,1)}
+  .thumbs button:hover{transform:translateY(-1px)}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal,.reveal-group > *{opacity:1 !important;animation:none !important}
+    .about-value:hover,.how-step:hover,.conf-card:hover,.slot:hover,
+    .feat:hover,.fab:hover,.thumbs button:hover{transform:none !important}
+  }
+
+  /* ============ Responsive ============ */
+  @media (max-width:960px){
+    .about-intro{grid-template-columns:1fr;gap:24px;padding:48px 0 16px}
+    .about-block{grid-template-columns:1fr;gap:24px;padding:32px 0}
+    .about-block.reverse .about-block-img{order:0}
+    .about-values-grid{grid-template-columns:1fr}
+    h1{font-size:42px}
+    .hero{min-height:420px}
+    .hero h1{font-size:36px}
+    .hero-bg::after{
+      background:linear-gradient(180deg,
+        rgba(255,255,255,.55) 0%,
+        rgba(255,255,255,.9) 55%,
+        rgba(255,255,255,.98) 100%);
+    }
+    .hero-content{padding:40px 0}
+    .home-products{grid-template-columns:1fr}
+    .pcard + .pcard{border-left:none;border-top:1px solid var(--hair)}
+    .features{grid-template-columns:repeat(2,1fr)}
+    .feat:nth-child(3){border-left:none;border-top:1px solid var(--hair)}
+    .feat:nth-child(4){border-top:1px solid var(--hair)}
+    .pdp-grid{grid-template-columns:1fr}
+    .thumbs{flex-direction:row;overflow-x:auto;padding-bottom:6px}
+    .thumbs button{width:80px;flex-shrink:0}
+    .basket-grid,.appt-grid{grid-template-columns:1fr}
+    .bk-item{grid-template-columns:100px 1fr;gap:14px}
+    .bk-controls{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center}
+    .how-steps{grid-template-columns:1fr}
+    .conf-hero{grid-template-columns:1fr;gap:24px}
+    .conf-img{order:-1}
+    .conf-cards{grid-template-columns:1fr}
+    .conf-card + .conf-card{border-left:none;border-top:1px solid var(--hair)}
+    .form-grid{grid-template-columns:1fr}
+    .nav{display:none}
+    .header-inner{padding:14px 20px}
+    .wrap{padding:0 20px}
+    .brand img{height:72px}
+  }
+  @media (max-width:480px){
+    h1{font-size:34px}
+    .pdp-title{font-size:32px}
+    .conf h2{font-size:34px}
+    .btn{min-width:0;width:100%}
+    .hero-cta .btn{flex:1}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#home" data-view="home" aria-label="EdelYarn home">
+      <img src="logo.png" alt="EdelYarn">
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#home" data-view="home">Shop</a>
+      <a href="#how" data-view="how">How it works</a>
+      <a href="#appointment" data-view="appointment">Book fitting</a>
+      <a href="#about" data-view="about">About</a>
+    </nav>
+    <div class="header-icons">
+      <button class="icon-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Account">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Basket" data-view="basket">
+        <svg viewBox="0 0 24 24"><path d="M5 8h14l-1.5 11a2 2 0 0 1-2 1.7H8.5A2 2 0 0 1 6.5 19L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<section class="view is-active" id="view-home">
+  <div class="hero">
+    <div class="hero-bg"><img src="Hero Image.png" alt="EdelYarn workshop with tailored suit"></div>
+    <div class="hero-content">
+      <div class="wrap">
+        <h1>Custom elegance<br>without luxury prices.</h1>
+        <p class="lead">Swiss-guided tailoring, in-person measurements, and custom garments crafted with expert partners in Vietnam.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#suit" data-view="suit">Shop now <svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-outline" href="#appointment" data-view="appointment">Book a fitting <svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-products">
+    <div class="pcard" data-view="suit" role="link" tabindex="0">
+      <div class="pcard-img"><img src="man 2.png" alt="Tailored Suit"></div>
+      <div class="pcard-body">
+        <h3>Tailored Suit</h3>
+        <p>Timeless suits, cut to your measure and style.</p>
+        <div class="pcard-price">From CHF 250 – 400</div>
+      </div>
+    </div>
+    <div class="pcard" data-view="dress" role="link" tabindex="0">
+      <div class="pcard-img"><img src="woman.png" alt="Custom Dress"></div>
+      <div class="pcard-body">
+        <h3>Custom Dress</h3>
+        <p>Elegant dresses, designed exclusively for you.</p>
+        <div class="pcard-price">From CHF 200 – 300</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features" id="features">
+    <div class="feat">
+      <svg viewBox="0 0 24 24"><path d="M3 7l9-3 9 3v3H3V7z"/><path d="M5 10v8M12 10v8M19 10v8"/><path d="M3 18h18"/></svg>
+      <span>In-person measurements<br>in Switzerland</span>
+    </div>
+    <div class="feat">
+      <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 8h16M8 4v16"/></svg>
+      <span>Premium fabrics</span>
+    </div>
+    <div class="feat">
+      <svg viewBox="0 0 24 24"><path d="M4 20V8l4-4h8l4 4v12"/><path d="M9 20v-6h6v6"/><circle cx="12" cy="11" r="1.2"/></svg>
+      <span>Expert tailoring partners<br>in Vietnam</span>
+    </div>
+    <div class="feat">
+      <svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+      <span>Delivery in 3–5 weeks</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="view" id="view-about">
+  <div class="wrap about-intro">
+    <div>
+      <span class="eyebrow">Our story</span>
+      <h2>Tailoring without compromise.</h2>
+      <p>EdelYarn was founded on a simple belief: a custom-made garment shouldn't be a privilege reserved for the few. We pair Swiss-guided measurements and styling with the craftsmanship of master tailors in Vietnam, bringing together two traditions that have, for generations, set the standard for precision and patience.</p>
+    </div>
+    <div class="about-intro-img"><img src="About 3.png" alt="EdelYarn atelier"></div>
+  </div>
+
+  <div class="wrap about-block">
+    <div class="about-block-img"><img src="About 1.png" alt="Swiss measurements studio"></div>
+    <div class="about-block-text">
+      <span class="eyebrow">Swiss precision</span>
+      <h3>Measured in Switzerland.</h3>
+      <p>Every EdelYarn piece begins in our Zurich fitting studio. A trained stylist takes thirty plus precise measurements, discusses your fabric, lining, button and lapel choices, and confirms every detail before a single thread is cut.</p>
+      <p>No guesswork. No mail-in tape measures. Just a careful, unhurried hour with someone whose only job is making sure your garment fits you, and you alone.</p>
+    </div>
+  </div>
+
+  <div class="wrap about-block reverse">
+    <div class="about-block-img"><img src="About 2.png" alt="Master tailors in Vietnam"></div>
+    <div class="about-block-text">
+      <span class="eyebrow">Vietnamese craft</span>
+      <h3>Crafted in Vietnam.</h3>
+      <p>Your specifications are sent to our atelier partners in Hoi An and Ho Chi Minh City, families who have been hand-tailoring suits and dresses for three generations. They cut your pattern by hand, baste the canvas, and stitch the lapels with techniques rarely seen outside of Savile Row.</p>
+      <p>The result is a garment with the soul of a heritage craft and the precision of a Swiss appointment, at roughly a third of the price you'd pay on Bond Street.</p>
+    </div>
+  </div>
+
+  <div class="about-values">
+    <div class="wrap">
+      <h3>What we stand for</h3>
+      <p>Three principles that shape every decision we make.</p>
+      <div class="about-values-grid">
+        <div class="about-value">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7l9-3 9 3v3H3V7z"/><path d="M5 10v8M12 10v8M19 10v8"/><path d="M3 18h18"/></svg></div>
+          <h4>Honest pricing</h4>
+          <p>No markup for the name on the label. You pay for the fabric, the fit and the hours, nothing else.</p>
+        </div>
+        <div class="about-value">
+          <div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 8h16M8 4v16"/></svg></div>
+          <h4>Material matters</h4>
+          <p>We work only with mills whose wools, silks and linens we'd happily wear ourselves, and we tell you exactly where they come from.</p>
+        </div>
+        <div class="about-value">
+          <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h4>Made to last</h4>
+          <p>A well-cut, well-stitched garment should outlive trends. Ours are built to be altered, re-lined and worn for decades.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="how-cta">
+    <h3>Come and meet us.</h3>
+    <p>Book a fitting at our Zurich studio, there's no obligation to order.</p>
+    <div class="how-cta-row">
+      <a class="btn btn-primary" href="#appointment" data-view="appointment">Book a fitting <svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-outline" href="#how" data-view="how">How it works <svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="view" id="view-how">
+  <div class="wrap how-hero">
+    <span class="eyebrow">Our process</span>
+    <h2>How it works</h2>
+    <p>From your first browse to a finished garment on your doorstep, a transparent four-step journey, guided by Swiss expertise and crafted by master tailors in Vietnam.</p>
+  </div>
+  <div class="wrap how-steps">
+    <div class="how-step" data-view="home" role="link" tabindex="0" aria-label="Choose your piece — browse products">
+      <div class="num">1</div>
+      <div>
+        <h4>Choose your piece</h4>
+        <p>Browse our tailored suits and custom dresses. Pick the silhouette and fabric direction that fits your style and your occasion, there's no wrong starting point.</p>
+      </div>
+    </div>
+    <div class="how-step" data-view="appointment" role="link" tabindex="0" aria-label="Book a measurements fitting">
+      <div class="num">2</div>
+      <div>
+        <h4>Book a measurements fitting</h4>
+        <p>Schedule a 60-minute in-person session at our Zurich studio. We'll confirm fabric choice, take precise measurements, and discuss any styling preferences.</p>
+      </div>
+    </div>
+    <div class="how-step" data-view="about" role="link" tabindex="0" aria-label="Swiss-guided, Vietnam-crafted — read our story">
+      <div class="num">3</div>
+      <div>
+        <h4>Swiss-guided, Vietnam-crafted</h4>
+        <p>Your specifications are sent to our trusted master tailors in Vietnam. They hand-cut and stitch your garment using premium wools, silks, and linens.</p>
+      </div>
+    </div>
+    <div class="how-step" data-view="about" role="link" tabindex="0" aria-label="Delivered to your door">
+      <div class="num">4</div>
+      <div>
+        <h4>Delivered to your door</h4>
+        <p>Within 3–5 weeks, your finished garment arrives carefully packaged. Final payment is taken on delivery, only after you've confirmed the fit and finish.</p>
+      </div>
+    </div>
+  </div>
+  <div class="how-cta">
+    <h3>Ready to begin?</h3>
+    <p>Start with a piece you love, or book a fitting straight away.</p>
+    <div class="how-cta-row">
+      <a class="btn btn-primary" href="#suit" data-view="suit">Shop now <svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-outline" href="#appointment" data-view="appointment">Book a fitting <svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUIT PDP ============ -->
+<section class="view" id="view-suit">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="#home" data-view="home">Home</a><span class="sep">›</span>
+      <a href="#home" data-view="home">Shop</a><span class="sep">›</span>
+      <a href="#suit" data-view="suit">Men</a><span class="sep">›</span>
+      <span>Tailored Suit</span>
+    </nav>
+    <div class="pdp pdp-grid">
+      <div class="thumbs" id="suitThumbs">
+        <button class="is-active" data-src="man.png" aria-label="View 1"><img src="man.png" alt=""></button>
+        <button data-src="man 2.png" aria-label="View 2"><img src="man 2.png" alt=""></button>
+        <button data-src="man 3.png" aria-label="View 3"><img src="man 3.png" alt=""></button>
+        <button data-src="man 4.png" aria-label="View 4"><img src="man 4.png" alt=""></button>
+      </div>
+      <div class="pdp-main"><img id="suitMain" src="man.png" alt="Tailored Suit"></div>
+      <div class="pdp-side">
+        <h2 class="pdp-title">Tailored Suit</h2>
+        <div class="pdp-rule"></div>
+        <div class="pdp-price">CHF 250 – 400</div>
+        <p class="pdp-note">Final price depends on fabric selection and the amount of fabric required.</p>
+        <p class="pdp-copy">A fully custom suit crafted to your measurements and style. Swiss-guided tailoring ensures a precise fit and refined silhouette, while premium fabrics and meticulous craftsmanship deliver timeless elegance and lasting comfort.</p>
+        <div class="fabrics-label">Recommended fabrics</div>
+        <div class="fabrics" id="suitFabrics">
+          <button class="fab is-active" data-fabric="Super 110 Wool">
+            <div class="swatch"><img src="Super 110 Wool.png" alt=""></div>
+            <div class="label">Super 110 Wool</div>
+          </button>
+          <button class="fab" data-fabric="Super 130 Wool">
+            <div class="swatch"><img src="Super 130 Wool.png" alt=""></div>
+            <div class="label">Super 130 Wool</div>
+          </button>
+          <button class="fab" data-fabric="Linen Blend">
+            <div class="swatch"><img src="Linen Blend.png" alt=""></div>
+            <div class="label">Linen Blend</div>
+          </button>
+        </div>
+        <div class="fabric-note">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+          <span>Fabric choice affects the final price.</span>
+        </div>
+        <div class="pdp-actions">
+          <button class="btn btn-primary btn-block" data-add="Tailored Suit">Add to basket</button>
+          <a class="btn btn-outline btn-block" href="#appointment" data-view="appointment">Book a fitting</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="features">
+    <div class="feat"><svg viewBox="0 0 24 24"><path d="M3 7l9-3 9 3v3H3V7z"/><path d="M5 10v8M12 10v8M19 10v8"/><path d="M3 18h18"/></svg><span>In-person measurements<br>in Switzerland</span></div>
+    <div class="feat"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 8h16M8 4v16"/></svg><span>Premium fabrics</span></div>
+    <div class="feat"><svg viewBox="0 0 24 24"><path d="M4 20V8l4-4h8l4 4v12"/><path d="M9 20v-6h6v6"/><circle cx="12" cy="11" r="1.2"/></svg><span>Expert tailoring partners<br>in Vietnam</span></div>
+    <div class="feat"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg><span>Delivery in 3–5 weeks</span></div>
+  </div>
+</section>
+
+<!-- ============ DRESS PDP ============ -->
+<section class="view" id="view-dress">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="#home" data-view="home">Home</a><span class="sep">›</span>
+      <a href="#home" data-view="home">Women</a><span class="sep">›</span>
+      <span>Custom Dress</span>
+    </nav>
+    <div class="pdp pdp-grid">
+      <div class="thumbs" id="dressThumbs">
+        <button class="is-active" data-src="woman.png" aria-label="View 1"><img src="woman.png" alt=""></button>
+        <button data-src="woman 1.png" aria-label="View 2"><img src="woman 1.png" alt=""></button>
+        <button data-src="woman 2.png" aria-label="View 3"><img src="woman 2.png" alt=""></button>
+        <button data-src="woman 3.png" aria-label="View 4"><img src="woman 3.png" alt=""></button>
+      </div>
+      <div class="pdp-main"><img id="dressMain" src="woman.png" alt="Custom Dress"></div>
+      <div class="pdp-side">
+        <span class="eyebrow">Women</span>
+        <h2 class="pdp-title">Custom Dress</h2>
+        <div class="pdp-rule"></div>
+        <div class="pdp-price">CHF 200 – 300</div>
+        <p class="pdp-note">Final price depends on fabric selection and the amount of fabric required.</p>
+        <p class="pdp-copy">Timeless and tailored to you. Our custom-made dresses are crafted to your measurements and style preferences, with in-person measurements in Switzerland and expert craftsmanship in Vietnam. Every detail is made to reflect your elegance.</p>
+        <div class="fabrics-label">Recommended fabrics</div>
+        <div class="fabrics" id="dressFabrics">
+          <button class="fab is-active" data-fabric="Silk">
+            <div class="swatch"><img src="Silk.png" alt=""></div>
+            <div class="label">Silk</div>
+          </button>
+          <button class="fab" data-fabric="Satin">
+            <div class="swatch"><img src="Satin.png" alt=""></div>
+            <div class="label">Satin</div>
+          </button>
+          <button class="fab" data-fabric="Crepe">
+            <div class="swatch"><img src="Crepe.png" alt=""></div>
+            <div class="label">Crepe</div>
+          </button>
+        </div>
+        <div class="fabric-note">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+          <span>Fabric choice affects the final price.</span>
+        </div>
+        <div class="pdp-actions">
+          <button class="btn btn-primary btn-block" data-add="Custom Dress">Add to basket</button>
+          <a class="btn btn-outline btn-block" href="#appointment" data-view="appointment">Book fitting</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="features">
+    <div class="feat"><svg viewBox="0 0 24 24"><path d="M3 7l9-3 9 3v3H3V7z"/><path d="M5 10v8M12 10v8M19 10v8"/><path d="M3 18h18"/></svg><span>In-person measurements<br>in Switzerland</span></div>
+    <div class="feat"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 8h16M8 4v16"/></svg><span>Premium fabrics</span></div>
+    <div class="feat"><svg viewBox="0 0 24 24"><path d="M4 20V8l4-4h8l4 4v12"/><path d="M9 20v-6h6v6"/><circle cx="12" cy="11" r="1.2"/></svg><span>Expert tailoring partners<br>in Vietnam</span></div>
+    <div class="feat"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg><span>Delivery in 3–5 weeks</span></div>
+  </div>
+</section>
+
+<!-- ============ BASKET ============ -->
+<section class="view" id="view-basket">
+  <div class="wrap basket">
+    <h2>Your Basket</h2>
+    <p class="lead" id="basketLead">Review your item and schedule your measurements appointment to complete your order.</p>
+
+    <div class="bk-empty" id="basketEmpty" style="display:none">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.5 11a2 2 0 0 1-2 1.7H8.5A2 2 0 0 1 6.5 19L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      </div>
+      <h3>Your basket is empty</h3>
+      <p>Start by browsing our tailored suits or custom dresses.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#suit" data-view="suit">Shop suits <svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-outline" href="#dress" data-view="dress">Shop dresses <svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+
+    <div class="basket-grid" id="basketFilled">
+      <div>
+        <div class="bk-item">
+          <div class="bk-img"><img id="basketImg" src="woman.png" alt=""></div>
+          <div>
+            <h4 id="basketName">Custom Dress</h4>
+            <p class="bk-desc" id="basketDesc">Elegant dresses, designed exclusively for you.</p>
+            <p class="bk-price-label">Estimated price</p>
+            <p class="bk-price" id="basketPrice">CHF 200 – 300</p>
+          </div>
+          <div class="bk-controls">
+            <div class="qty">
+              <button id="qtyMinus" aria-label="Decrease quantity">−</button>
+              <span id="qtyVal">1</span>
+              <button id="qtyPlus" aria-label="Increase quantity">+</button>
+            </div>
+            <button class="trash" aria-label="Remove item" id="trashBtn">
+              <svg viewBox="0 0 24 24"><path d="M4 7h16M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M6 7l1 13a2 2 0 0 0 2 1.8h6a2 2 0 0 0 2-1.8L18 7"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="bk-info">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+          Final price is confirmed after fabric choice and in-person measurements.
+        </div>
+        <div class="bk-callout">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+          <span>To complete your order, please schedule a measurements appointment in Switzerland.</span>
+        </div>
+      </div>
+      <aside class="summary">
+        <h4>Order summary</h4>
+        <div class="row"><span>Subtotal (1 item)</span><span id="sumSubtotal">CHF 200 – 300</span></div>
+        <div class="row"><span>Measurements appointment</span><span class="req">Required</span></div>
+        <div class="row total"><span>Estimated total</span><span id="sumTotal">CHF 200 – 300</span></div>
+        <div class="req-banner">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+          <span>Measurements appointment is required before your order can be confirmed.</span>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary btn-block" href="#appointment" data-view="appointment">Schedule your measurements appointment</a>
+          <a class="btn btn-outline btn-block" href="#home" data-view="home">Continue shopping</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPOINTMENT (multi-step) ============ -->
+<section class="view" id="view-appointment">
+  <div class="wrap appt">
+
+    <!-- Steps 1 & 2 share the same two-column layout -->
+    <div class="appt-step is-current" data-step="1">
+      <div class="appt-grid">
+        <div>
+          <h2>Schedule your<br>measurements<br>appointment</h2>
+          <p class="lead">Choose your preferred shop and time. Our experts will take care of the rest.</p>
+          <div class="steps" data-steps>
+            <div class="step is-active" data-step-indicator="1"><span class="num">1</span><span class="label">Schedule</span><span class="bar"></span></div>
+            <div class="step" data-step-indicator="2"><span class="num">2</span><span class="label">Your details</span><span class="bar"></span></div>
+            <div class="step" data-step-indicator="3"><span class="num">3</span><span class="label">Confirmation</span><span class="bar"></span></div>
+          </div>
+        </div>
+        <div class="appt-col">
+          <h4>Choose a shop</h4>
+          <div class="shop-card">
+            <div class="ico">
+              <svg viewBox="0 0 24 24"><path d="M3 10l2-6h14l2 6"/><path d="M3 10v10h18V10"/><path d="M9 20v-6h6v6"/></svg>
+            </div>
+            <div class="meta">
+              <h5>EdelYarn Fitting Studio – Zurich</h5>
+              <p>Bahnhofstrasse 32<br>8001 Zurich, Switzerland</p>
+            </div>
+            <span class="check"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span>
+          </div>
+          <h4>Choose your appointment</h4>
+          <div class="slots" id="slots">
+            <label class="slot" data-date-label="Wednesday, 20 May" data-time="10:00" data-ref-date="200526">
+              <span class="cal"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></span>
+              <span class="when">Wednesday, 20 May – 10:00</span>
+              <input type="radio" name="slot" hidden>
+              <span class="radio"></span>
+            </label>
+            <label class="slot" data-date-label="Friday, 22 May" data-time="14:30" data-ref-date="220526">
+              <span class="cal"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></span>
+              <span class="when">Friday, 22 May – 14:30</span>
+              <input type="radio" name="slot" hidden>
+              <span class="radio"></span>
+            </label>
+          </div>
+          <button class="btn btn-primary btn-block" id="toStep2" disabled>Continue <svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+          <div class="appt-note">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+            Measurements take around 60 minutes.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="appt-step" data-step="2">
+      <div class="appt-grid">
+        <div>
+          <h2>Your details</h2>
+          <p class="lead">A few details so we can confirm your appointment and send you a reminder.</p>
+          <div class="steps">
+            <div class="step is-done"><span class="num">1</span><span class="label">Schedule</span><span class="bar"></span></div>
+            <div class="step is-active"><span class="num">2</span><span class="label">Your details</span><span class="bar"></span></div>
+            <div class="step"><span class="num">3</span><span class="label">Confirmation</span><span class="bar"></span></div>
+          </div>
+        </div>
+        <div class="appt-col">
+          <h4>Personal information</h4>
+          <form id="detailsForm" novalidate>
+            <div class="form-grid">
+              <div class="field"><label for="firstName">First name</label><input id="firstName" name="firstName" type="text" required><span class="err">Please enter your first name.</span></div>
+              <div class="field"><label for="lastName">Last name</label><input id="lastName" name="lastName" type="text" required><span class="err">Please enter your last name.</span></div>
+              <div class="field full"><label for="email">Email address</label><input id="email" name="email" type="email" required><span class="err">Please enter a valid email.</span></div>
+              <div class="field full"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" placeholder="+41 …" required><span class="err">Please enter a phone number.</span></div>
+              <div class="field full"><label for="notes">Notes (optional)</label><textarea id="notes" name="notes" placeholder="Style preferences, occasion, anything we should know…"></textarea></div>
+            </div>
+            <label class="consent">
+              <input type="checkbox" id="consent" required>
+              <span>I agree to be contacted by EdelYarn about my appointment and order. We never share your details.</span>
+            </label>
+            <div class="appt-actions">
+              <button type="button" class="btn btn-ghost" id="backToStep1">Back</button>
+              <button type="submit" class="btn btn-primary" id="toStep3">Confirm appointment <svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: full-width confirmation -->
+    <div class="appt-step" data-step="3">
+      <div class="conf">
+        <div class="conf-hero">
+          <div class="conf-text">
+            <div class="conf-check">
+              <svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>
+            </div>
+            <h2>Appointment confirmed</h2>
+            <p>Thank you<span id="confName"></span>. Your fitting appointment has been successfully scheduled. We look forward to welcoming you.</p>
+          </div>
+          <div class="conf-img"><img src="Hero Image.png" alt="EdelYarn workshop"></div>
+        </div>
+
+        <div class="conf-cards">
+          <div class="conf-card">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 22s7-7.5 7-13a7 7 0 0 0-14 0c0 5.5 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+            <div class="lbl">Location</div>
+            <div class="val">EdelYarn Fitting Studio – Zurich</div>
+            <div class="sub">Bahnhofstrasse 32<br>8001 Zurich, Switzerland</div>
+          </div>
+          <div class="conf-card">
+            <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div>
+            <div class="lbl">Date &amp; Time</div>
+            <div class="val" id="confDateTime">Wednesday, 20 May – 10:00</div>
+            <div class="sub">Duration ~ 60 minutes</div>
+          </div>
+          <div class="conf-card">
+            <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></div>
+            <div class="lbl">Booking Reference</div>
+            <div class="val" id="confRef">EYZ-200526-0017</div>
+            <div class="sub">A confirmation email has been sent to you.</div>
+          </div>
+        </div>
+
+        <div class="conf-banner">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+          <span>After your measurements are taken, the delivery of your garment will take around <b>3–5 weeks</b>. Initial payment can be made once your measurements are taken. You will receive a confirmation email with all details.</span>
+        </div>
+
+        <div class="conf-actions">
+          <a class="btn btn-primary" href="#home" data-view="home" id="backHome">Back to homepage <svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="tag">EdelYarn</span>
+    <span>Swiss-guided · Vietnam-crafted</span>
+    <span>© 2026 EdelYarn. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+  // ===== View routing =====
+  const views = ['home','how','about','suit','dress','basket','appointment'];
+  function showView(name){
+    if(!views.includes(name)) name = 'home';
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('is-active'));
+    const el = document.getElementById('view-'+name);
+    if(el) el.classList.add('is-active');
+    if(location.hash.slice(1) !== name) history.replaceState(null,'','#'+name);
+    window.scrollTo({top:0,behavior:'instant'});
+    // Reset appointment to step 1 whenever we re-enter from elsewhere
+    if(name === 'appointment') setApptStep(1);
+  }
+  document.addEventListener('click', e=>{
+    const t = e.target.closest('[data-view]');
+    if(!t) return;
+    e.preventDefault();
+    showView(t.getAttribute('data-view'));
+  });
+  document.addEventListener('keydown', e=>{
+    if(e.key==='Enter'){
+      const t = e.target.closest('[data-view]');
+      if(t && t.tagName !== 'BUTTON' && t.tagName !== 'INPUT' && t.tagName !== 'TEXTAREA'){
+        e.preventDefault(); showView(t.getAttribute('data-view'));
+      }
+    }
+  });
+  window.addEventListener('hashchange', ()=> showView(location.hash.slice(1) || 'home'));
+
+  // ===== PDP: thumbnail swap =====
+  function wireThumbs(thumbsId, mainId){
+    const cont = document.getElementById(thumbsId);
+    const main = document.getElementById(mainId);
+    if(!cont || !main) return;
+    cont.addEventListener('click', e=>{
+      const btn = e.target.closest('button[data-src]');
+      if(!btn) return;
+      cont.querySelectorAll('button').forEach(b=>b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      main.src = btn.getAttribute('data-src');
+    });
+  }
+  wireThumbs('suitThumbs','suitMain');
+  wireThumbs('dressThumbs','dressMain');
+
+  // ===== PDP: fabric selection =====
+  document.querySelectorAll('.fabrics').forEach(group=>{
+    group.addEventListener('click', e=>{
+      const f = e.target.closest('.fab');
+      if(!f) return;
+      group.querySelectorAll('.fab').forEach(x=>x.classList.remove('is-active'));
+      f.classList.add('is-active');
+    });
+  });
+
+  // ===== Cart state =====
+  const badge = document.getElementById('cartBadge');
+  const basketImg = document.getElementById('basketImg');
+  const basketName = document.getElementById('basketName');
+  const basketDesc = document.getElementById('basketDesc');
+  const basketPrice = document.getElementById('basketPrice');
+  const sumSubtotal = document.getElementById('sumSubtotal');
+  const sumTotal = document.getElementById('sumTotal');
+  const qtyVal = document.getElementById('qtyVal');
+
+  const products = {
+    'Tailored Suit':{img:'man 2.png',desc:'Timeless suits, cut to your measure and style.',price:'CHF 250 – 400'},
+    'Custom Dress':{img:'woman.png',desc:'Elegant dresses, designed exclusively for you.',price:'CHF 200 – 300'}
+  };
+  let cart = { item:null, qty:0 };
+
+  const basketEmpty = document.getElementById('basketEmpty');
+  const basketFilled = document.getElementById('basketFilled');
+  const basketLead = document.getElementById('basketLead');
+
+  function renderBasket(){
+    const isEmpty = !cart.item || cart.qty < 1;
+    basketEmpty.style.display = isEmpty ? '' : 'none';
+    basketFilled.style.display = isEmpty ? 'none' : '';
+    basketLead.style.display = isEmpty ? 'none' : '';
+    badge.textContent = isEmpty ? '0' : String(cart.qty);
+    if(isEmpty) return;
+    const p = products[cart.item];
+    basketImg.src = p.img;
+    basketName.textContent = cart.item;
+    basketDesc.textContent = p.desc;
+    basketPrice.textContent = p.price;
+    sumSubtotal.textContent = p.price;
+    sumTotal.textContent = p.price;
+    qtyVal.textContent = cart.qty;
+  }
+
+  document.querySelectorAll('[data-add]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      cart = { item: btn.getAttribute('data-add'), qty:1 };
+      renderBasket();
+      showView('basket');
+    });
+  });
+
+  // Basket controls,delegated so they survive any re-render and don't fight the data-view delegate
+  document.addEventListener('click', (e)=>{
+    if(e.target.closest('#qtyPlus')){
+      e.preventDefault();
+      cart.qty = Math.min(9, cart.qty + 1);
+      renderBasket();
+    } else if(e.target.closest('#qtyMinus')){
+      e.preventDefault();
+      cart.qty = Math.max(1, cart.qty - 1);
+      renderBasket();
+    } else if(e.target.closest('#trashBtn')){
+      e.preventDefault();
+      cart = { item:null, qty:0 };
+      renderBasket();
+    }
+  });
+
+  renderBasket();
+
+  // ===== Appointment multi-step flow =====
+  let selectedSlot = null;
+
+  function setApptStep(n){
+    document.querySelectorAll('.appt-step').forEach(s=>s.classList.remove('is-current'));
+    const cur = document.querySelector('.appt-step[data-step="'+n+'"]');
+    if(cur) cur.classList.add('is-current');
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+
+  // Slot picking
+  document.querySelectorAll('#slots .slot').forEach(slot=>{
+    slot.addEventListener('click', ()=>{
+      document.querySelectorAll('#slots .slot').forEach(s=>s.classList.remove('is-active'));
+      slot.classList.add('is-active');
+      const r = slot.querySelector('input[type=radio]');
+      if(r) r.checked = true;
+      selectedSlot = {
+        dateLabel: slot.getAttribute('data-date-label'),
+        time: slot.getAttribute('data-time'),
+        refDate: slot.getAttribute('data-ref-date')
+      };
+      document.getElementById('toStep2').disabled = false;
+    });
+  });
+
+  // Step 1 → Step 2
+  document.getElementById('toStep2').addEventListener('click', ()=>{
+    if(!selectedSlot) return;
+    setApptStep(2);
+  });
+
+  // Step 2 → Step 1
+  document.getElementById('backToStep1').addEventListener('click', ()=>{
+    setApptStep(1);
+  });
+
+  // Step 2 → Step 3 (validate + submit)
+  document.getElementById('detailsForm').addEventListener('submit', e=>{
+    e.preventDefault();
+    const fields = ['firstName','lastName','email','phone'];
+    let ok = true;
+    fields.forEach(id=>{
+      const input = document.getElementById(id);
+      const wrap = input.closest('.field');
+      let bad = !input.value.trim();
+      if(!bad && id === 'email') bad = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+      if(!bad && id === 'phone') bad = input.value.trim().replace(/\D/g,'').length < 6;
+      wrap.classList.toggle('is-invalid', bad);
+      if(bad) ok = false;
+    });
+    const consent = document.getElementById('consent');
+    if(!consent.checked){ consent.focus(); ok = false; }
+    if(!ok) return;
+
+    // Populate confirmation page
+    const first = document.getElementById('firstName').value.trim();
+    document.getElementById('confName').textContent = first ? ', ' + first : '';
+    if(selectedSlot){
+      document.getElementById('confDateTime').textContent = selectedSlot.dateLabel + ' – ' + selectedSlot.time;
+      const seq = String(Math.floor(1000 + Math.random()*9000));
+      document.getElementById('confRef').textContent = 'EYZ-' + selectedSlot.refDate + '-' + seq;
+    }
+    setApptStep(3);
+  });
+
+  // Step 3 → Home (via data-view router handles it; just reset step state)
+  document.getElementById('backHome').addEventListener('click', ()=>{
+    setTimeout(()=>setApptStep(1), 350);
+  });
+
+  // ===== Premium reveal-on-scroll system =====
+  (function setupReveals(){
+    const individual = [
+      '.breadcrumb',
+      '.pdp-main',
+      '.bk-item','.summary','.bk-callout','.bk-info','.bk-empty',
+      '.basket > h2','.basket > .lead',
+      '.appt-step > .appt-grid > div',
+      '.shop-card',
+      '.form-grid','.consent','.appt-actions',
+      '.conf-text','.conf-img','.conf-banner','.conf-actions',
+      '.how-hero > *',
+      '.how-cta > *',
+      '.about-intro > div',
+      '.about-block > div',
+      '.about-values > .wrap > h3','.about-values > .wrap > p'
+    ].join(',');
+    document.querySelectorAll(individual).forEach(el => el.classList.add('reveal'));
+
+    const groups = [
+      '.home-products',
+      '.features',
+      '.how-steps',
+      '.about-values-grid',
+      '.thumbs',
+      '.fabrics',
+      '.conf-cards',
+      '.slots',
+      '.pdp-side'
+    ].join(',');
+    document.querySelectorAll(groups).forEach(el => el.classList.add('reveal-group'));
+  })();
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('is-visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+
+  function observeReveals(root){
+    (root || document).querySelectorAll('.reveal:not(.is-visible), .reveal-group:not(.is-visible)').forEach(el => revealObserver.observe(el));
+  }
+  observeReveals();
+
+  // Re-scan whenever a view becomes active, so elements that were display:none get picked up
+  const _showView = showView;
+  showView = function(name){
+    _showView(name);
+    const view = document.getElementById('view-' + name);
+    if(view) requestAnimationFrame(() => observeReveals(view));
+  };
+
+  // ===== Initial view =====
+  showView(location.hash.slice(1) || 'home');
+</script>
+</body>
+</html>
